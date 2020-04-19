@@ -34,7 +34,7 @@ public class Storage {
 			GUIARecFr, GUIARecFr, 0.5, GUIARecFr, GUIARecFr, 0.5, GUIARecFr,
 			GUIARecFr, 0.5, GUIARecFr, 0.5, GUIARecFr };
 
-	static String boxText, edgeText;
+	static String boxText, edgeText, GUIsimName;
 	static boolean GUIYinFemalesStatus, GUINextToYinFemalesStatus,
 			GUImtDNAStatus, GUIAutosomalAlleleStatus, GUITotalYStatus,
 			GUIObservedZoneStatus, GUIShowFemalesStatus, GUITotalFitnessStatus,
@@ -104,8 +104,11 @@ public class Storage {
 				.getText());
 		Storage.GUIfemaleFitness5 = Double.parseDouble(a.femaleFitness5Txtfld
 				.getText());
-		Storage.GUIfemaleFitness6 = Double.parseDouble(a.femaleFitness6Txtfld
+		Storage.GUIfemaleFitness6 = Double.parseDouble(a.femaleFitness6Txtfld				
 				.getText());
+//		Storage.GUIsimName = String.parseString(a.simName
+//				.getText());
+		Storage.GUIsimName = a.simName.getText().toString();
 		Storage.recFrStandard[0] = 0;
 		Storage.recFrStandard[1] = 0.1;
 		Storage.recFrStandard[2] = 0.1;

@@ -159,27 +159,30 @@ public class PodismaEvent implements ActionListener {
 				PrintWriter TrMaleFitnessOutput;
 				PrintWriter TrFemaleFitnessOutput;
 				PrintWriter TrFemaleMtDNAOutput;
-
+				String xmlDir = Storage.GUIsimName;
+				File xmlDirectory = new File(xmlDir); 
+				xmlDirectory.mkdirs();
+				
 				try {
-					TrYinFemalesName = "Repl" + txtFileNbr
+					TrYinFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrOutputYinFemales.txt";
-					TrNextToYinFemalesName = "Repl" + txtFileNbr
+					TrNextToYinFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrNextToYinFemales.txt";
-					TrmtDNAName = "Repl" + txtFileNbr + "TrmtDNA.txt";
-					TrAutosomalAlleleName = "Repl" + txtFileNbr
+					TrmtDNAName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrmtDNA.txt";
+					TrAutosomalAlleleName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrAutosomalAllele.txt";
-					TrTotalYName = "Repl" + txtFileNbr + "TrTotalY.txt";
-					TrObservedZoneName = "Repl" + txtFileNbr
+					TrTotalYName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrTotalY.txt";
+					TrObservedZoneName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrObservedZone.txt";
-					TrShowFemalesName = "Repl" + txtFileNbr
+					TrShowFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrShoeFemales.txt";
-					TrTotalFitnessName = "Repl" + txtFileNbr
+					TrTotalFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrTotalFitness.txt";
-					TrMaleFitnessName = "Repl" + txtFileNbr
+					TrMaleFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrMaleFitness.txt";
-					TrFemaleFitnessName = "Repl" + txtFileNbr
+					TrFemaleFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrFemaleFitness.txt";
-					TrFemaleMtDNAName = "Repl" + txtFileNbr
+					TrFemaleMtDNAName = Storage.GUIsimName + "/Repl" + txtFileNbr
 							+ "TrFemaleMtDNA.txt";
 
 					TrYinFemalesOutput = new PrintWriter(new FileWriter(
@@ -417,7 +420,6 @@ public class PodismaEvent implements ActionListener {
 			}
 			gui.outputFld.setText("Output stochastic files are done!!!");
 		} 
-		
 		
 		//DETERMINISTIC MODEL STARTS HERE
 		 if (Storage.boxText == "deterministicMode") {

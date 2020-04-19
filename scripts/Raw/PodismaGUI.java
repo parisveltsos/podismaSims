@@ -122,6 +122,8 @@ public class PodismaGUI extends JFrame {
 
 	JTextField femaleFitness6Txtfld = new JTextField("1", 5);
 
+	JTextField simName = new JTextField("SIMNAME", 5);
+
 	JCheckBox YinFemales = new JCheckBox("YinFemales", true);
 
 	JCheckBox NextToYinFemales = new JCheckBox("NextToYinFemales", true);
@@ -153,7 +155,7 @@ public class PodismaGUI extends JFrame {
 			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
 	JLabel OutputEveryLbl = new JLabel("Output result every: ");
-	JLabel VersionNumberLbl = new JLabel("Version 1.3 ");
+	JLabel VersionNumberLbl = new JLabel("Version 1.3.1 ");
 	
 	JTextField OutputEveryTxtfld = new JTextField("10", 5);
 
@@ -576,6 +578,11 @@ public class PodismaGUI extends JFrame {
 		constraints.fill = GridBagConstraints.NONE;
 		gridbag.setConstraints(OutputEveryTxtfld, constraints);
 		pane.add(OutputEveryTxtfld);
+
+		buildConstraints(constraints, 5, 1, 1, 1, 0, 100);
+		constraints.fill = GridBagConstraints.NONE;
+		gridbag.setConstraints(simName, constraints);
+		pane.add(simName);
 
 		buildConstraints(constraints, 6, 17, 1, 1, 0, 100);
 		constraints.fill = GridBagConstraints.NONE;
