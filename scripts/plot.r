@@ -1,3 +1,4 @@
+library(plotrix)
 datapath <- '~/git/podismaSims/output/SIMNAME'
 fdata <- read.table(file.path(datapath, 'Rinput_Repl0TrObservedZone.txt'), header=T)
 ydata <- read.table(file.path(datapath, 'Rinput_Repl0TrTotalY.txt'), header=T)
@@ -10,6 +11,8 @@ afitness <- read.table(file.path(datapath, 'Rinput_Repl0TrTotalFitness.txt'), he
 yfemales <- read.table(file.path(datapath, 'Rinput_Repl0TrOutputYinFemales.txt'), header=T)
 ynfemales <- read.table(file.path(datapath, 'Rinput_Repl0TrNextToYinFemales.txt'), header=T)
 # str(fdata)
+tabData <- read.table(file.path(datapath, 'table.txt'))
+
 
 pdf(file.path(datapath,'clinePlot.pdf'), width=12, height=12)
 par(mfrow=c(3,2)) 
@@ -52,6 +55,8 @@ lines(seq(1:40), adata$X30, col=4, lty=4, lw=2)
 lines(seq(1:40), adata$X40, col=6, lty=4, lw=2)
 lines(seq(1:40), adata$X100, col=8, lty=4, lw=2)
 # legend('bottomright', inset=0.02, legend=c('g1', 'g100', 'g200', 'g300', 'g400', 'g1000'), pch =c(1), col=c(1,2,3,4,6,8), cex=0.8 )
+plot(0, type="n", axes=F, xlab="", ylab="", main="Sim parameters")
+addtable2plot(.6, -0.5, tabData, bty='o', hlines=F, vlines=F, display.rownames=F, display.colnames=F, yjust=1, xjust=0, cex=0.9)
 dev.off()
 
 pdf(file.path(datapath,'fitnessPlot.pdf'), width=12, height=12)
@@ -101,6 +106,8 @@ lines(seq(1:40), ynfemales$X20, col=3, lty=5, lw=2)
 lines(seq(1:40), ynfemales$X30, col=4, lty=5, lw=2)
 lines(seq(1:40), ynfemales$X40, col=6, lty=5, lw=2)
 lines(seq(1:40), ynfemales$X100, col=8, lty=5, lw=2)
+plot(0, type="n", axes=F, xlab="", ylab="", main="Sim parameters")
+addtable2plot(.6, -0.5, tabData, bty='o', hlines=F, vlines=F, display.rownames=F, display.colnames=F, yjust=1, xjust=0, cex=0.9)
 dev.off()
 
 

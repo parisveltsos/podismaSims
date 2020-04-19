@@ -1,3 +1,11 @@
+## Requirements
+
+You need to install Java. The workflow has been tested on a Mac running MacOS Mojave 10.14.6.
+
+The commands should work without needing to change the folders in scripts if you clone the project at `~/git/podismaSims/`
+
+
+
 ## To compile
 
 	cd ~/git/podismaSims/scripts/Raw
