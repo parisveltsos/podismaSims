@@ -4,17 +4,11 @@ You need to install Java. The workflow has been tested on a Mac running MacOS Mo
 
 The commands should work without needing to change the folders in scripts if you clone the project at `~/git/podismaSims/`
 
+R needs the plotrix library to add the simulation parameter table in the simulations
 
+	install.packages("plotrix", dependencies=TRUE)
 
-## To compile
-
-	cd ~/git/podismaSims/scripts/Raw
-
-	javac -Xlint:unchecked *.java
-
-	jar cmf MainClass.txt test.jar *.java *.class icons/
-	
-	cp Podisma.jar ~/git/podismaSims/output
+Copy the `icons` folder and the `Podisma.jar` program to the output folder. The output folder is in the `.gitignore` file. The program is run from there and the output is not synced with github.
 
 ## To run
 
@@ -35,6 +29,18 @@ A neutral run on the stochastic mode takes 2 min on a 3.8GHz Inter Core i5 iMac 
 	source ~/git/podismaSims/scripts/formatAndPlot.sh
 	
 The produced plots automatically open with the default pdf viewer. Remember to change the name of the SIMNAME folder if the simulation results are worth saving.
+	
+## To compile
+
+A compiled version is included so you should not need to do this.
+
+	cd ~/git/podismaSims/scripts/Raw
+
+	javac -Xlint:unchecked *.java
+
+	jar cmf MainClass.txt test.jar *.java *.class icons/
+	
+	cp Podisma.jar ~/git/podismaSims/output
 	
 ## Version history
 
