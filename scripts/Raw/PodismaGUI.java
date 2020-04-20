@@ -9,145 +9,90 @@ import javax.swing.*;
 public class PodismaGUI extends JFrame {
 	
 	ImageIcon podismaImage = new ImageIcon("icons/podisma.jpg", "Podisma image");
-
 	ImageIcon maleImage1 = new ImageIcon("icons/MImg1.jpg", "Male1");
-
 	ImageIcon maleImage2 = new ImageIcon("icons/MImg2.jpg", "Male2");
-
 	ImageIcon maleImage3 = new ImageIcon("icons/MImg3.jpg", "Male3");
-
 	ImageIcon maleImage4 = new ImageIcon("icons/MImg4.jpg", "Male4");
-
 	ImageIcon maleImage5 = new ImageIcon("icons/MImg5.jpg", "Male5");
-
 	ImageIcon femaleImage1 = new ImageIcon("icons/FImg1.jpg", "Female1");
-
 	ImageIcon femaleImage2 = new ImageIcon("icons/FImg2.jpg", "Female2");
-
 	ImageIcon femaleImage3 = new ImageIcon("icons/FImg3.jpg", "Female3");
-
 	ImageIcon femaleImage4 = new ImageIcon("icons/FImg4.jpg", "Female4");
-
 	ImageIcon femaleImage5 = new ImageIcon("icons/FImg5.jpg", "Female5");
-
 	ImageIcon femaleImage6 = new ImageIcon("icons/FImg6.jpg", "Female6");
 
 	JLabel Title = new JLabel("Welcome to the Podisma modelling program!");
 
 	JLabel popSizeLbl = new JLabel("Population size: ");
-
 	JTextField popSizeTxtfld = new JTextField("100", 5);
 
 	JLabel runForLbl = new JLabel("Run for: ");
-
 	JTextField generationsTxtfld = new JTextField("10000", 5);
-
 	JLabel generationsLbl = new JLabel("generations ");
 
 	JLabel ARecFrLbl = new JLabel("Autosomal loci recombination frequency: ");
-
 	JTextField ARecFrTxtfld = new JTextField("0.1", 5);
 
 	JLabel XRecFrLbl = new JLabel("X chromosome loci recombination frequency: ");
-
 	JTextField XRecFrTxtfld = new JTextField("0.1", 5);
 
 	JLabel YRecFrLbl = new JLabel("Y chromosome loci recombination frequency: ");
-
 	JTextField YRecFrTxtfld = new JTextField("0.01", 5);
 
 	JLabel FRecFrLbl = new JLabel("Fusion recombination frequency: ");
-
 	JTextField FRecFrTxtfld = new JTextField("0", 5);
 
 	JLabel geneFlowLbl = new JLabel("Percentage of gene flow: ");
-
 	JTextField geneFlowTxtfld = new JTextField("0.16", 5);
 
 	JLabel zoneWidthLbl = new JLabel("Zone width is: ");
-
 	JTextField zoneWidthTxtfld = new JTextField("40", 5);
-
 	JLabel populationsLbl = new JLabel("populations ");
 
 	JLabel produceTxtLbl = new JLabel("Produce: ");
-
 	JTextField txtFilesTxtfld = new JTextField("1", 5);
-
 	JLabel txtFilesLbl = new JLabel("text files ");
 
 	JTextArea outputFld = new JTextArea(4, 40);
 
 	JLabel maleFitness1 = new JLabel("", maleImage1, JLabel.CENTER);
-
 	JLabel maleFitness2 = new JLabel("", maleImage2, JLabel.CENTER);
-
 	JLabel maleFitness3 = new JLabel("", maleImage3, JLabel.CENTER);
-
 	JLabel maleFitness4 = new JLabel("", maleImage4, JLabel.CENTER);
-
 	JLabel maleFitness5 = new JLabel("", maleImage5, JLabel.CENTER);
-
 	JLabel femaleFitness1 = new JLabel("", femaleImage1, JLabel.CENTER);
-
 	JLabel femaleFitness2 = new JLabel("", femaleImage2, JLabel.CENTER);
-
 	JLabel femaleFitness3 = new JLabel("", femaleImage3, JLabel.CENTER);
-
 	JLabel femaleFitness4 = new JLabel("", femaleImage4, JLabel.CENTER);
-
 	JLabel femaleFitness5 = new JLabel("", femaleImage5, JLabel.CENTER);
-
 	JLabel femaleFitness6 = new JLabel("", femaleImage6, JLabel.CENTER);
 
 	JTextField maleFitness1Txtfld = new JTextField("1", 5);
-
 	JTextField maleFitness2Txtfld = new JTextField("1", 5);
-
 	JTextField maleFitness3Txtfld = new JTextField("1", 5);
-
 	JTextField maleFitness4Txtfld = new JTextField("1", 5);
-
 	JTextField maleFitness5Txtfld = new JTextField("1", 5);
-
 	JTextField femaleFitness1Txtfld = new JTextField("1", 5);
-
 	JTextField femaleFitness2Txtfld = new JTextField("1", 5);
-
 	JTextField femaleFitness3Txtfld = new JTextField("1", 5);
-
 	JTextField femaleFitness4Txtfld = new JTextField("1", 5);
-
 	JTextField femaleFitness5Txtfld = new JTextField("1", 5);
-
 	JTextField femaleFitness6Txtfld = new JTextField("1", 5);
 
 	JTextField simName = new JTextField("SIMNAME", 5);
 
 	JCheckBox YinFemales = new JCheckBox("YinFemales", true);
-
 	JCheckBox NextToYinFemales = new JCheckBox("NextToYinFemales", true);
-
 	JCheckBox mtDNA = new JCheckBox("mtDNA", true);
-
 	JCheckBox AutosomalAllele = new JCheckBox("AutosomalAllele", true);
-
 	JCheckBox TotalY = new JCheckBox("TotalY", true);
-
 	JCheckBox ObservedZone = new JCheckBox("ObservedZone", true);
-
 	JCheckBox ShowFemales = new JCheckBox("ShowFemales", true);
-
 	JCheckBox TotalFitness = new JCheckBox("TotalFitness", true);
-
 	JCheckBox MaleFitness = new JCheckBox("MaleFitness", true);
-
 	JCheckBox FemaleFitness = new JCheckBox("FemaleFitness", true);
-	
 	JCheckBox FemaleZone = new JCheckBox("ReportFusionSpeed", true);
-	
 	JCheckBox ChrCline = new JCheckBox("ChrCline", true);
-	
 	JCheckBox AllIndividuals = new JCheckBox("PlotAllIndividuals", true);
 
 	JScrollPane scroll = new JScrollPane(outputFld,
@@ -155,7 +100,7 @@ public class PodismaGUI extends JFrame {
 			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
 	JLabel OutputEveryLbl = new JLabel("Output result every: ");
-	JLabel VersionNumberLbl = new JLabel("Version 1.3.1 ");
+	JLabel VersionNumberLbl = new JLabel("Version 1.3.2 ");
 	
 	JTextField OutputEveryTxtfld = new JTextField("10", 5);
 
@@ -164,7 +109,6 @@ public class PodismaGUI extends JFrame {
 	JLabel generationsLbl3 = new JLabel("generations ");
 	
 	JLabel StopGeneFlowLbl = new JLabel("Stop gene flow after: ");
-	
 	JTextField geneFlowGenerationsTxtfld = new JTextField("10000", 5);
 
 	JButton go = new JButton("Go!", podismaImage);
@@ -613,8 +557,7 @@ public class PodismaGUI extends JFrame {
 //		//	Add listeners
 //		deterministic.addActionListener(podEv);
 //		pane.add(deterministic);
-
-		
+	
 		buildConstraints(constraints, 4, 3, 1, 1, 0, 100);
 		constraints.fill = GridBagConstraints.NONE;
 		constraints.anchor = GridBagConstraints.EAST;
@@ -679,7 +622,6 @@ public class PodismaGUI extends JFrame {
 
 		System.out.println("GUIpopSize when start run is: "
 				+ Storage.GUIpopSize);
-
 	}
 
 	//	Helper method that allows easy definition of the constraints values for

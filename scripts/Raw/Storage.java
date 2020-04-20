@@ -1,20 +1,11 @@
 import javax.swing.JCheckBox;
 
 public class Storage {
-	static int gameteD[] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0 };
-
-	static int gameteB[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			1, 1, 1 };
-
-	static int gameteE[] = { 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0 };
-
-	static int gameteC[] = { 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0 };
-
-	static int gameteA[] = { 0, 5, 5, 5, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			1, 1, 1 };
+	static int gameteD[] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	0, 0, 0 };
+	static int gameteB[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,	1, 1, 1 };
+	static int gameteE[] = { 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	0, 0, 0 };
+	static int gameteC[] = { 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	0, 0, 0 };
+	static int gameteA[] = { 0, 5, 5, 5, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,	1, 1, 1 };
 
 	static Population zonePop1, zonePop2, zonePop3, zonePop4, zonePop5,
 			zonePop6, zonePop7, zonePop8, zonePop9, zonePop10, zonePop11,
@@ -73,8 +64,7 @@ public class Storage {
 		Storage.boxText = (String) a.modeBox.getSelectedItem();
 		Storage.edgeText = (String) a.zoneEdgeBox.getSelectedItem();
 		Storage.GUIpopSize = Integer.parseInt(a.popSizeTxtfld.getText());
-		Storage.GUIgenerations = Integer
-				.parseInt(a.generationsTxtfld.getText());
+		Storage.GUIgenerations = Integer	.parseInt(a.generationsTxtfld.getText());
 		Storage.GUIXRecFr = Double.parseDouble(a.XRecFrTxtfld.getText());
 		Storage.GUIARecFr = Double.parseDouble(a.ARecFrTxtfld.getText());
 		Storage.GUIFRecFr = Double.parseDouble(a.FRecFrTxtfld.getText());
@@ -82,32 +72,18 @@ public class Storage {
 		Storage.GUIgeneFlow = Double.parseDouble(a.geneFlowTxtfld.getText());
 		Storage.GUIZoneWidth = Integer.parseInt(a.zoneWidthTxtfld.getText());
 		Storage.GUItxtFiles = Integer.parseInt(a.txtFilesTxtfld.getText());
-		Storage.GUIgeneFlowGenerations = Integer
-				.parseInt(a.geneFlowGenerationsTxtfld.getText());
-		Storage.GUImaleFitness1 = Double.parseDouble(a.maleFitness1Txtfld
-				.getText());
-		Storage.GUImaleFitness2 = Double.parseDouble(a.maleFitness2Txtfld
-				.getText());
-		Storage.GUImaleFitness3 = Double.parseDouble(a.maleFitness3Txtfld
-				.getText());
-		Storage.GUImaleFitness4 = Double.parseDouble(a.maleFitness4Txtfld
-				.getText());
-		Storage.GUImaleFitness5 = Double.parseDouble(a.maleFitness5Txtfld
-				.getText());
-		Storage.GUIfemaleFitness1 = Double.parseDouble(a.femaleFitness1Txtfld
-				.getText());
-		Storage.GUIfemaleFitness2 = Double.parseDouble(a.femaleFitness2Txtfld
-				.getText());
-		Storage.GUIfemaleFitness3 = Double.parseDouble(a.femaleFitness3Txtfld
-				.getText());
-		Storage.GUIfemaleFitness4 = Double.parseDouble(a.femaleFitness4Txtfld
-				.getText());
-		Storage.GUIfemaleFitness5 = Double.parseDouble(a.femaleFitness5Txtfld
-				.getText());
-		Storage.GUIfemaleFitness6 = Double.parseDouble(a.femaleFitness6Txtfld				
-				.getText());
-//		Storage.GUIsimName = String.parseString(a.simName
-//				.getText());
+		Storage.GUIgeneFlowGenerations = Integer	.parseInt(a.geneFlowGenerationsTxtfld.getText());
+		Storage.GUImaleFitness1 = Double.parseDouble(a.maleFitness1Txtfld.getText());
+		Storage.GUImaleFitness2 = Double.parseDouble(a.maleFitness2Txtfld.getText());
+		Storage.GUImaleFitness3 = Double.parseDouble(a.maleFitness3Txtfld.getText());
+		Storage.GUImaleFitness4 = Double.parseDouble(a.maleFitness4Txtfld.getText());
+		Storage.GUImaleFitness5 = Double.parseDouble(a.maleFitness5Txtfld.getText());
+		Storage.GUIfemaleFitness1 = Double.parseDouble(a.femaleFitness1Txtfld.getText());
+		Storage.GUIfemaleFitness2 = Double.parseDouble(a.femaleFitness2Txtfld.getText());
+		Storage.GUIfemaleFitness3 = Double.parseDouble(a.femaleFitness3Txtfld.getText());
+		Storage.GUIfemaleFitness4 = Double.parseDouble(a.femaleFitness4Txtfld.getText());
+		Storage.GUIfemaleFitness5 = Double.parseDouble(a.femaleFitness5Txtfld.getText());
+		Storage.GUIfemaleFitness6 = Double.parseDouble(a.femaleFitness6Txtfld.getText());
 		Storage.GUIsimName = a.simName.getText().toString();
 		Storage.recFrStandard[0] = 0;
 		Storage.recFrStandard[1] = 0.1;
@@ -143,61 +119,29 @@ public class Storage {
 		Storage.GUIChrClineStatus = a.ChrCline.isSelected();
 		Storage.GUIAllIndividualsStatus = a.AllIndividuals.isSelected();
 
-		Storage.GUIOutputEvery = Integer
-				.parseInt(a.OutputEveryTxtfld.getText());
+		Storage.GUIOutputEvery = Integer	.parseInt(a.OutputEveryTxtfld.getText());
 
-		Storage.DfitnessTable[0][0] = Double.parseDouble(a.maleFitness1Txtfld
-				.getText());
-		;
-		Storage.DfitnessTable[1][0] = Double.parseDouble(a.maleFitness5Txtfld
-				.getText());
-		Storage.DfitnessTable[2][0] = Double.parseDouble(a.femaleFitness1Txtfld
-				.getText());
-		Storage.DfitnessTable[3][0] = Double.parseDouble(a.femaleFitness3Txtfld
-				.getText());
-		Storage.DfitnessTable[4][0] = Double.parseDouble(a.femaleFitness4Txtfld
-				.getText());
-		Storage.DfitnessTable[0][1] = Double.parseDouble(a.maleFitness2Txtfld
-				.getText());
-		Storage.DfitnessTable[1][1] = Double.parseDouble(a.maleFitness4Txtfld
-				.getText());
-		Storage.DfitnessTable[2][1] = Double.parseDouble(a.femaleFitness3Txtfld
-				.getText());
-		Storage.DfitnessTable[3][1] = Double.parseDouble(a.femaleFitness2Txtfld
-				.getText());
-		Storage.DfitnessTable[4][1] = Double.parseDouble(a.femaleFitness5Txtfld
-				.getText());
-		Storage.DfitnessTable[0][2] = Double.parseDouble(a.maleFitness3Txtfld
-				.getText());
-		Storage.DfitnessTable[1][2] = Double.parseDouble(a.maleFitness2Txtfld
-				.getText());
-		Storage.DfitnessTable[2][2] = Double.parseDouble(a.femaleFitness4Txtfld
-				.getText());
-		Storage.DfitnessTable[3][2] = Double.parseDouble(a.femaleFitness5Txtfld
-				.getText());
-		Storage.DfitnessTable[4][2] = Double.parseDouble(a.femaleFitness6Txtfld
-				.getText());
+		Storage.DfitnessTable[0][0] = Double.parseDouble(a.maleFitness1Txtfld.getText());
+		Storage.DfitnessTable[1][0] = Double.parseDouble(a.maleFitness5Txtfld.getText());
+		Storage.DfitnessTable[2][0] = Double.parseDouble(a.femaleFitness1Txtfld.getText());
+		Storage.DfitnessTable[3][0] = Double.parseDouble(a.femaleFitness3Txtfld.getText());
+		Storage.DfitnessTable[4][0] = Double.parseDouble(a.femaleFitness4Txtfld.getText());
+		Storage.DfitnessTable[0][1] = Double.parseDouble(a.maleFitness2Txtfld.getText());
+		Storage.DfitnessTable[1][1] = Double.parseDouble(a.maleFitness4Txtfld.getText());
+		Storage.DfitnessTable[2][1] = Double.parseDouble(a.femaleFitness3Txtfld.getText());
+		Storage.DfitnessTable[3][1] = Double.parseDouble(a.femaleFitness2Txtfld.getText());
+		Storage.DfitnessTable[4][1] = Double.parseDouble(a.femaleFitness5Txtfld.getText());
+		Storage.DfitnessTable[0][2] = Double.parseDouble(a.maleFitness3Txtfld.getText());
+		Storage.DfitnessTable[1][2] = Double.parseDouble(a.maleFitness2Txtfld.getText());
+		Storage.DfitnessTable[2][2] = Double.parseDouble(a.femaleFitness4Txtfld.getText());
+		Storage.DfitnessTable[3][2] = Double.parseDouble(a.femaleFitness5Txtfld.getText());
+		Storage.DfitnessTable[4][2] = Double.parseDouble(a.femaleFitness6Txtfld.getText());
 
 		// 14/09/2007 Figure 5.1 karyotypes compare to the following:
 		// A-->MaleFitness1 (MF1)
 		// B-->MF4, C-->MF2, D-->MF5, E-->MF3, F-->FF1, G-->FF2, H-->FF3,
 		// I-->FF4, J-->FF5, K-->FF6
 
-		// This silly looking code because array initialiser can only be used at
-		// the beginning.
 	}
-
-	/*
-	 * these are the original gametes and recombination frequencies we though to
-	 * use. They have now been replaced. final double reFrD [] = {0.1, 0.1, 0.5,
-	 * 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.5,
-	 * 0.1, 0.5}; final double reFrB [] = {0.1, 0.1, 0.1, 0.1, 0.1, 0.5, 0.1,
-	 * 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.5, 0.1, 0.5}; final double
-	 * reFrE [] = {0.1, 0.1, 0.5, 0.01, 0.01, 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5,
-	 * 0.1, 0.1, 0.5, 0.1, 0.5, 0.1, 0.5}; final double reFrC [] = {0, 0, 0.5,
-	 * 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.5,
-	 * 0.1, 0.5}; final double reFrA [] = {0, 0, 0.5, 0.01, 0.01, 0.5, 0.1, 0.1,
-	 * 0.5, 0.1, 0.1, 0.5, 0.1, 0.1, 0.5, 0.1, 0.5, 0.1, 0.5};
-	 */
 
 }

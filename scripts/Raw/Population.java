@@ -6,13 +6,12 @@ public class Population {
 	Individual[] males, females;
 
 	public Population() {
-		Individual UFM = new Individual(Storage.getGamete("D"), Storage
-				.getGamete("C"), 0); //THESE need to be replaced by a method,
-									 // this particular one should give the same
-									 // gametes from the opposite combination of
-									 // sperm and egg 50% of the time too!
-		Individual UFF = new Individual(Storage.getGamete("D"), Storage
-				.getGamete("D"), 0);
+		Individual UFM = new Individual(Storage.getGamete("D"), Storage.getGamete("C"), 0); 
+			//THESE need to be replaced by a method,
+			// this particular one should give the same
+			// gametes from the opposite combination of
+			// sperm and egg 50% of the time too!
+		Individual UFF = new Individual(Storage.getGamete("D"), Storage.getGamete("D"), 0);
 		males = new Individual[Storage.GUIpopSize];
 		females = new Individual[Storage.GUIpopSize];
 		for (int i = 0; i < Storage.GUIpopSize; i++) {
@@ -36,8 +35,7 @@ public class Population {
 	public Population(Population old, int halfpopsize) {
 		males = new Individual[halfpopsize];
 		females = new Individual[halfpopsize];
-		Individual newborn = new Individual(Storage.getGamete("D"), Storage
-				.getGamete("D"), 0);
+		Individual newborn = new Individual(Storage.getGamete("D"), Storage.getGamete("D"), 0);
 		// ATTENTION why does the newborn need to be initialised? It shouldnt
 		// matter what the initial values are?
 		int j, k;
@@ -60,11 +58,8 @@ public class Population {
 						j = (int) (halfpopsize * (Math.random()));
 						if (old.females[j].indFit > Math.random()) {
 							newborn = new Individual(old.females[j].Gamete(),
-									maleGamete, old.females[j].mtDNA); //mtDNA
-																	   // inherited
-																	   // from
-																	   // mother
-																	   // always.
+									maleGamete, old.females[j].mtDNA);
+							//mtDNA always inherited from mother  
 							femalePass = true;
 						}
 					}

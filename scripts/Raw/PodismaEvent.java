@@ -5,7 +5,6 @@ import java.io.*;
 
 import javax.swing.JCheckBox;
 
-
 //public class PodismaEvent implements ActionListener, Runnable {
 public class PodismaEvent implements ActionListener {
 	public PodismaGUI gui;
@@ -22,8 +21,7 @@ public class PodismaEvent implements ActionListener {
 		 		
 		if (command == "comboBoxChanged") {
 				if (Storage.boxText == " ") {
-				gui.outputFld.setText("please select a mode to run the program");
-			
+				gui.outputFld.setText("please select a mode to run the program");		
 			}
 			else if (Storage.boxText == "deterministicMode") {
 				gui.popSizeTxtfld.setEnabled(false);
@@ -60,7 +58,7 @@ public class PodismaEvent implements ActionListener {
 				gui.ChrCline.setEnabled(false);
 				gui.AllIndividuals.setEnabled(false);
 				
-				gui.outputFld.setText("Stochastic mode selected: result will be different between different runs");
+				gui.outputFld.setText("Stochastic mode selected: result will be different between runs");
 			
 			}
 	
@@ -68,15 +66,14 @@ public class PodismaEvent implements ActionListener {
 				gui.outputFld.setText("please select whether to allow edge effects");
 			}
 			else if (Storage.edgeText == "edgeEffects") {
-				gui.outputFld.setText("The zone will be disturbed by edge effects");
+				gui.outputFld.setText("Edge effects: Edge populations cannot be replaced by recombinant populations, disturbing the zone.");
 				
 			}
 			else if (Storage.edgeText == "noEdgeEffects") {
 				gui.outputFld.setText("Pure populations at the edges can be replaced by recombinant populations");
 	
 				}
-				
-			
+						
 			if (((Storage.edgeText == "edgeEffects") || (Storage.edgeText == "noEdgeEffects")) && 
 			((Storage.boxText == "stochasticMode") || (Storage.boxText == "deterministicMode"))) {
 				gui.go.setEnabled(true);
@@ -97,26 +94,17 @@ public class PodismaEvent implements ActionListener {
 			//			gui.outputFld.setText("Text file creation in progress.....");
 
 			// I need individuals to make my starting populations with. Remember
-			// that the egg position should only recieve egg gametes.
-			Individual hopper1 = new Individual(Storage.getGamete("D"), Storage
-					.getGamete("D"), 0);
-			//starting female for the first population, the one below is a
-			// starting male
-			Individual hopper2 = new Individual(Storage.getGamete("B"), Storage
-					.getGamete("A"), 1); //UF individual has mtDNA of 0 while
-			// the other has 1
-			Individual UFM = new Individual(Storage.getGamete("D"), Storage
-					.getGamete("C"), 0); //THESE need to be replaced by a
-			// method, this particular one should
-			// give the same gametes from the
-			// opposite combination of sperm and
-			// egg 50% of the time too!
-			Individual UFF = new Individual(Storage.getGamete("D"), Storage
-					.getGamete("D"), 0);
-			Individual FM = new Individual(Storage.getGamete("B"), Storage
-					.getGamete("A"), 1);
-			Individual FF = new Individual(Storage.getGamete("B"), Storage
-					.getGamete("B"), 1);
+			// that the egg position should only receive egg gametes.
+			Individual hopper1 = new Individual(Storage.getGamete("D"), Storage.getGamete("D"), 0);
+			//starting female for the first population, the one below is a starting male
+			Individual hopper2 = new Individual(Storage.getGamete("B"), Storage.getGamete("A"), 1); 
+			//UF individual has mtDNA of 0 while the other has 1
+			Individual UFM = new Individual(Storage.getGamete("D"), Storage.getGamete("C"), 0); 
+			//THESE need to be replaced by a method, this particular one should give the same
+			// gametes from the opposite combination of sperm and egg 50% of the time too!
+			Individual UFF = new Individual(Storage.getGamete("D"), Storage.getGamete("D"), 0);
+			Individual FM = new Individual(Storage.getGamete("B"), Storage.getGamete("A"), 1);
+			Individual FF = new Individual(Storage.getGamete("B"), Storage.getGamete("B"), 1);
 
 			/*
 			 * System.out.println(); System.out.println("hopper 1 is: ");
@@ -136,16 +124,11 @@ public class PodismaEvent implements ActionListener {
 
 				for (int i = 0; i < Storage.GUIZoneWidth; i++) {
 					if (i < (int) (Storage.GUIZoneWidth / 2))
-						oldTransect[i] = new Population(UFF, UFM,
-								Storage.GUIpopSize);
+						oldTransect[i] = new Population(UFF, UFM, Storage.GUIpopSize);
 					if (i >= (int) (Storage.GUIZoneWidth / 2))
-						oldTransect[i] = new Population(FF, FM,
-								Storage.GUIpopSize);
-				
-
-				}
-				// 	  		System.out.println("This is the very first transect before
-				// anything happens");
+						oldTransect[i] = new Population(FF, FM,	Storage.GUIpopSize);
+					}
+				// 	  		System.out.println("This is the very first transect before anything happens");
 				// 	  		QuestionZone2(oldTransect);
 
 				PrintWriter TrYinFemalesOutput;
@@ -164,48 +147,29 @@ public class PodismaEvent implements ActionListener {
 				xmlDirectory.mkdirs();
 				
 				try {
-					TrYinFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrOutputYinFemales.txt";
-					TrNextToYinFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrNextToYinFemales.txt";
+					TrYinFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrOutputYinFemales.txt";
+					TrNextToYinFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrNextToYinFemales.txt";
 					TrmtDNAName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrmtDNA.txt";
-					TrAutosomalAlleleName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrAutosomalAllele.txt";
+					TrAutosomalAlleleName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrAutosomalAllele.txt";
 					TrTotalYName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrTotalY.txt";
-					TrObservedZoneName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrObservedZone.txt";
-					TrShowFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrShoeFemales.txt";
-					TrTotalFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrTotalFitness.txt";
-					TrMaleFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrMaleFitness.txt";
-					TrFemaleFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrFemaleFitness.txt";
-					TrFemaleMtDNAName = Storage.GUIsimName + "/Repl" + txtFileNbr
-							+ "TrFemaleMtDNA.txt";
+					TrObservedZoneName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrObservedZone.txt";
+					TrShowFemalesName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrShoeFemales.txt";
+					TrTotalFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrTotalFitness.txt";
+					TrMaleFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrMaleFitness.txt";
+					TrFemaleFitnessName = Storage.GUIsimName + "/Repl" + txtFileNbr 	+ "TrFemaleFitness.txt";
+					TrFemaleMtDNAName = Storage.GUIsimName + "/Repl" + txtFileNbr + "TrFemaleMtDNA.txt";
 
-					TrYinFemalesOutput = new PrintWriter(new FileWriter(
-							TrYinFemalesName));
-					TrNextToYinFemalesOutput = new PrintWriter(new FileWriter(
-							TrNextToYinFemalesName));
+					TrYinFemalesOutput = new PrintWriter(new FileWriter(	TrYinFemalesName));
+					TrNextToYinFemalesOutput = new PrintWriter(new FileWriter(TrNextToYinFemalesName));
 					TrmtDNAOutput = new PrintWriter(new FileWriter(TrmtDNAName));
-					TrAutosomalAlleleOutput = new PrintWriter(new FileWriter(
-							TrAutosomalAlleleName));
-					TrTotalYOutput = new PrintWriter(new FileWriter(
-							TrTotalYName));
-					TrObservedZoneOutput = new PrintWriter(new FileWriter(
-							TrObservedZoneName));
-					TrShowFemalesOutput = new PrintWriter(new FileWriter(
-							TrShowFemalesName));
-					TrTotalFitnessOutput = new PrintWriter(new FileWriter(
-							TrTotalFitnessName));
-					TrMaleFitnessOutput = new PrintWriter(new FileWriter(
-							TrMaleFitnessName));
-					TrFemaleFitnessOutput = new PrintWriter(new FileWriter(
-							TrFemaleFitnessName));
-					TrFemaleMtDNAOutput = new PrintWriter(new FileWriter(
-							TrFemaleMtDNAName));
+					TrAutosomalAlleleOutput = new PrintWriter(new FileWriter(TrAutosomalAlleleName));
+					TrTotalYOutput = new PrintWriter(new FileWriter(	TrTotalYName));
+					TrObservedZoneOutput = new PrintWriter(new FileWriter(TrObservedZoneName));
+					TrShowFemalesOutput = new PrintWriter(new FileWriter(TrShowFemalesName));
+					TrTotalFitnessOutput = new PrintWriter(new FileWriter(TrTotalFitnessName));
+					TrMaleFitnessOutput = new PrintWriter(new FileWriter(TrMaleFitnessName));
+					TrFemaleFitnessOutput = new PrintWriter(new FileWriter(TrFemaleFitnessName));
+					TrFemaleMtDNAOutput = new PrintWriter(new FileWriter(TrFemaleMtDNAName));
 					
 					for (int j = 0; j < Storage.GUIgenerations; j++) {
 						beforeFlowTransect = nextGeneration(oldTransect);
@@ -216,138 +180,104 @@ public class PodismaEvent implements ActionListener {
 							// outputs so that excel can sort them properly
 							if (f < 10) {
 								if (Storage.GUIYinFemalesStatus) {
-									TrYinFemalesOutput.print("'Generation " + j
-											+ "' 'ZoneLocation0" + f + "'");
+									TrYinFemalesOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUINextToYinFemalesStatus) {
 									TrNextToYinFemalesOutput
-											.print("'Generation " + j
-													+ "' 'ZoneLocation0" + f
-													+ "'");
+											.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUImtDNAStatus) {
-									TrmtDNAOutput.print("'Generation " + j
-											+ "' 'ZoneLocation0" + f + "'");
+									TrmtDNAOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUIAutosomalAlleleStatus) {
 									TrAutosomalAlleleOutput
-											.print("'Generation " + j
-													+ "' 'ZoneLocation0" + f
-													+ "'");
+											.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUITotalYStatus) {
-									TrTotalYOutput.print("'Generation " + j
-											+ "' 'ZoneLocation0" + f + "'");
+									TrTotalYOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUIObservedZoneStatus) {
-									TrObservedZoneOutput.print("'Generation "
-											+ j + "' 'ZoneLocation0" + f + "'");
+									TrObservedZoneOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUIShowFemalesStatus) {
-									TrShowFemalesOutput.print("'Generation "
-											+ j + "' 'ZoneLocation0" + f + "'");
+									TrShowFemalesOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUITotalFitnessStatus) {
-									TrTotalFitnessOutput.print("'Generation "
-											+ j + "' 'ZoneLocation0" + f + "'");
+									TrTotalFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUIMaleFitnessStatus) {
-									TrMaleFitnessOutput.print("'Generation "
-											+ j + "' 'ZoneLocation0" + f + "'");
+									TrMaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
 								if (Storage.GUIFemaleFitnessStatus) {
-									TrFemaleFitnessOutput.print("'Generation "
-											+ j + "' 'ZoneLocation0" + f + "'");
+									TrFemaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 								}
-								TrFemaleMtDNAOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								TrFemaleMtDNAOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 
 							else {
 								if (Storage.GUIYinFemalesStatus) {
-									TrYinFemalesOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									TrYinFemalesOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUINextToYinFemalesStatus) {
 									TrNextToYinFemalesOutput
-											.print("'Generation " + j
-													+ "' 'ZoneLocation" + f
-													+ "'");
+											.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUImtDNAStatus) {
-									TrmtDNAOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									TrmtDNAOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIAutosomalAlleleStatus) {
-									TrAutosomalAlleleOutput
-											.print("'Generation " + j
-													+ "' 'ZoneLocation" + f
-													+ "'");
+									TrAutosomalAlleleOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUITotalYStatus) {
-									TrTotalYOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									TrTotalYOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIObservedZoneStatus) {
-									TrObservedZoneOutput.print("'Generation "
-											+ j + "' 'ZoneLocation" + f + "'");
+									TrObservedZoneOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIShowFemalesStatus) {
-									TrShowFemalesOutput.print("'Generation "
-											+ j + "' 'ZoneLocation" + f + "'");
+									TrShowFemalesOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUITotalFitnessStatus) {
-									TrTotalFitnessOutput.print("'Generation "
-											+ j + "' 'ZoneLocation" + f + "'");
+									TrTotalFitnessOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIMaleFitnessStatus) {
-									TrMaleFitnessOutput.print("'Generation "
-											+ j + "' 'ZoneLocation" + f + "'");
+									TrMaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIFemaleFitnessStatus) {
-									TrFemaleFitnessOutput.print("'Generation "
-											+ j + "' 'ZoneLocation" + f + "'");
+									TrFemaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
-								TrFemaleMtDNAOutput.print("'Generation " + j
-										+ "' 'ZoneLocation" + f + "'");
+								TrFemaleMtDNAOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 							}
 
 							if (Storage.GUIYinFemalesStatus) {
-								newTransect[f]
-										.ShowYinFemales(TrYinFemalesOutput);
+								newTransect[f].ShowYinFemales(TrYinFemalesOutput);
 							}
 							if (Storage.GUINextToYinFemalesStatus) {
-								newTransect[f]
-										.ShowNextToYinFemales(TrNextToYinFemalesOutput);
+								newTransect[f].ShowNextToYinFemales(TrNextToYinFemalesOutput);
 							}
 							if (Storage.GUImtDNAStatus) {
 								newTransect[f].ShowmtDNA(TrmtDNAOutput);
 							}
 							if (Storage.GUIAutosomalAlleleStatus) {
-								newTransect[f]
-										.ShowAutosomalAllele(TrAutosomalAlleleOutput);
+								newTransect[f].ShowAutosomalAllele(TrAutosomalAlleleOutput);
 							}
 							if (Storage.GUITotalYStatus) {
 								newTransect[f].ShowTotalY(TrTotalYOutput);
 							}
 							if (Storage.GUIObservedZoneStatus) {
-								newTransect[f]
-										.ShowObservedZone(TrObservedZoneOutput);
+								newTransect[f].ShowObservedZone(TrObservedZoneOutput);
 							}
 							if (Storage.GUIShowFemalesStatus) {
 								newTransect[f].ShowFemales(TrShowFemalesOutput);
 							}
 							if (Storage.GUITotalFitnessStatus) {
-								newTransect[f]
-										.ShowTotalFitness(TrTotalFitnessOutput);
+								newTransect[f].ShowTotalFitness(TrTotalFitnessOutput);
 							}
 							if (Storage.GUIMaleFitnessStatus) {
-								newTransect[f]
-										.ShowMaleFitness(TrMaleFitnessOutput);
+								newTransect[f].ShowMaleFitness(TrMaleFitnessOutput);
 							}
 							if (Storage.GUIFemaleFitnessStatus) {
-								newTransect[f]
-										.ShowFemaleFitness(TrFemaleFitnessOutput);
+								newTransect[f].ShowFemaleFitness(TrFemaleFitnessOutput);
 							}
 							newTransect[f].ShowFemalemtDNA(TrFemaleMtDNAOutput);
 						}
@@ -359,48 +289,37 @@ public class PodismaEvent implements ActionListener {
 
 					}
 					TrYinFemalesOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrYinFemalesOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrYinFemalesOutput);
 					TrYinFemalesOutput.close();
 					TrNextToYinFemalesOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrNextToYinFemalesOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrNextToYinFemalesOutput);
 					TrNextToYinFemalesOutput.close();
 					TrmtDNAOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrmtDNAOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrmtDNAOutput);
 					TrmtDNAOutput.close();
 					TrAutosomalAlleleOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrAutosomalAlleleOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrAutosomalAlleleOutput);
 					TrAutosomalAlleleOutput.close();
 					TrTotalYOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrTotalYOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrTotalYOutput);
 					TrTotalYOutput.close();
 					TrObservedZoneOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrObservedZoneOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrObservedZoneOutput);
 					TrObservedZoneOutput.close();
 					TrShowFemalesOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrShowFemalesOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrShowFemalesOutput);
 					TrShowFemalesOutput.close();
 					TrTotalFitnessOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrTotalFitnessOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrTotalFitnessOutput);
 					TrTotalFitnessOutput.close();
 					TrMaleFitnessOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrMaleFitnessOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrMaleFitnessOutput);
 					TrMaleFitnessOutput.close();
 					TrFemaleFitnessOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrFemaleFitnessOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrFemaleFitnessOutput);
 					TrFemaleFitnessOutput.close();
 					TrFemaleMtDNAOutput.println();
-					oldTransect[(int) (Storage.GUIZoneWidth / 2)]
-							.addSimParameters(TrFemaleMtDNAOutput);
+					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrFemaleMtDNAOutput);
 					TrFemaleMtDNAOutput.close();
 					/*
 					 * Scanner sc = new Scanner(ReplT0rOutputYinFemales.txt);
@@ -423,7 +342,7 @@ public class PodismaEvent implements ActionListener {
 		
 		//DETERMINISTIC MODEL STARTS HERE
 		 if (Storage.boxText == "deterministicMode") {
-			System.out.println("to koubi patithike");
+			System.out.println("Runnind deterministic");
 			Storage.readGUI(gui); //updates all values in storage with the ones in GUI
 System.out.println("Deterministic is working ");
 System.out.println("Storage fitness table is: ");
@@ -437,7 +356,6 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 		//Will use these to initialise the first population
 		DPopulation UFDP = new DPopulation();
 		UFDP.DPopulationUnfused();
-		//Zaba
 		//UFDP.DPopulationUnfusedY();
 		DPopulation FDP = new DPopulation();
 		FDP.DPopulationFused();
@@ -535,36 +453,28 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 							}
 							
 							if (Storage.GUIYinFemalesStatus) {
-								DetYinFemalesNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetYinFemalesNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUITotalYStatus) {
-								DetTotalYNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetTotalYNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUITotalFitnessStatus) {
-								DetAllFitnessNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetAllFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUIMaleFitnessStatus) {
-								DetMaleFitnessNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetMaleFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUIFemaleFitnessStatus) {
-								DetFemaleFitnessNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetFemaleFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUIObservedZoneStatus) {
-								DetMaleChrClineNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetMaleChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUIFemaleChrClineStatus) {
-								DetFemaleChrClineNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetFemaleChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							if (Storage.GUIChrClineStatus) {
-								DetChrClineNameOutput.print("'Generation " + j
-										+ "' 'ZoneLocation0" + f + "'");
+								DetChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
 							}
 							
 							
@@ -585,36 +495,28 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 									}
 								
 								if (Storage.GUIYinFemalesStatus) {
-									DetYinFemalesNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetYinFemalesNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUITotalYStatus) {
-									DetTotalYNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetTotalYNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUITotalFitnessStatus) {
-									DetAllFitnessNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetAllFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIMaleFitnessStatus) {
-									DetMaleFitnessNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetMaleFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIFemaleFitnessStatus) {
-									DetFemaleFitnessNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetFemaleFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIObservedZoneStatus) {
-									DetMaleChrClineNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetMaleChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIFemaleChrClineStatus) {
-									DetFemaleChrClineNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetFemaleChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 								if (Storage.GUIChrClineStatus) {
-									DetChrClineNameOutput.print("'Generation " + j
-											+ "' 'ZoneLocation" + f + "'");
+									DetChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
 							}
 								
@@ -654,21 +556,12 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 							}
 							if (Storage.GUIChrClineStatus) {
 								nextGenDpopTransect[f].printDetChrCline(DetChrClineNameOutput);
-							}	
-							
-							
-							
-							
+							}						
 							
 						}
 				}
 				
-				
-				
-				
-				
 				startingDpopTransect = nextGenDpopTransect;
-				
 				
 			}
 			DetM1NameOutput.println();
@@ -793,12 +686,9 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 		// this particular one should give the same
 		// gametes from the opposite combination of
 		// sperm and egg 50% of the time too!
-		Individual UFF = new Individual(Storage.getGamete("D"), Storage
-				.getGamete("D"), 0);
-		Individual FM = new Individual(Storage.getGamete("B"), Storage
-				.getGamete("A"), 1);
-		Individual FF = new Individual(Storage.getGamete("B"), Storage
-				.getGamete("B"), 1);
+		Individual UFF = new Individual(Storage.getGamete("D"), Storage.getGamete("D"), 0);
+		Individual FM = new Individual(Storage.getGamete("B"), Storage.getGamete("A"), 1);
+		Individual FF = new Individual(Storage.getGamete("B"), Storage.getGamete("B"), 1);
 
 		Population[] a = new Population[Storage.GUIZoneWidth];
 		int b;
@@ -1107,7 +997,5 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 		}
 		return transectGametes;
 	}
-	
-
 	
 }
