@@ -84,7 +84,7 @@ public class PodismaEvent implements ActionListener {
 		
 		//	else System.out.println("Unknown edgeBox command"); //this is not needed unless the box functionality changes.
 			}
-		
+		// STOCHASTIC STARTS HERE
 		if (command == "Go!") {
 				if (Storage.boxText == "stochasticMode") {
 			
@@ -178,43 +178,44 @@ public class PodismaEvent implements ActionListener {
 						for (int f = 0; f < Storage.GUIZoneWidth; f++) {
 							//this if statement is to add a zero in the 1-9
 							// outputs so that excel can sort them properly
-							if (f < 10) {
-								if (Storage.GUIYinFemalesStatus) {
-									TrYinFemalesOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUINextToYinFemalesStatus) {
-									TrNextToYinFemalesOutput
-											.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUImtDNAStatus) {
-									TrmtDNAOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUIAutosomalAlleleStatus) {
-									TrAutosomalAlleleOutput
-											.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUITotalYStatus) {
-									TrTotalYOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUIObservedZoneStatus) {
-									TrObservedZoneOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUIShowFemalesStatus) {
-									TrShowFemalesOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUITotalFitnessStatus) {
-									TrTotalFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUIMaleFitnessStatus) {
-									TrMaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								if (Storage.GUIFemaleFitnessStatus) {
-									TrFemaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-								}
-								TrFemaleMtDNAOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
+// 							if (f < 10) {
+// 								if (Storage.GUIYinFemalesStatus) {
+// 									TrYinFemalesOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUINextToYinFemalesStatus) {
+// 									TrNextToYinFemalesOutput
+// 											.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUImtDNAStatus) {
+// 									TrmtDNAOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUIAutosomalAlleleStatus) {
+// 									TrAutosomalAlleleOutput
+// 											.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUITotalYStatus) {
+// 									TrTotalYOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUIObservedZoneStatus) {
+// 									TrObservedZoneOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUIShowFemalesStatus) {
+// 									TrShowFemalesOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUITotalFitnessStatus) {
+// 									TrTotalFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUIMaleFitnessStatus) {
+// 									TrMaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								if (Storage.GUIFemaleFitnessStatus) {
+// 									TrFemaleFitnessOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 								}
+// 								TrFemaleMtDNAOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
+// 							}
 
-							else {
+//							else {
+							{
 								if (Storage.GUIYinFemalesStatus) {
 									TrYinFemalesOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
@@ -321,14 +322,6 @@ public class PodismaEvent implements ActionListener {
 					TrFemaleMtDNAOutput.println();
 					oldTransect[(int) (Storage.GUIZoneWidth / 2)].addSimParameters(TrFemaleMtDNAOutput);
 					TrFemaleMtDNAOutput.close();
-					/*
-					 * Scanner sc = new Scanner(ReplT0rOutputYinFemales.txt);
-					 * System.out.println(sc.next());
-					 * System.out.println(sc.next());
-					 * System.out.println(sc.next());
-					 * System.out.println(sc.next());
-					 * System.out.println(sc.next());
-					 */
 
 				}
 
@@ -342,7 +335,7 @@ public class PodismaEvent implements ActionListener {
 		
 		//DETERMINISTIC MODEL STARTS HERE
 		 if (Storage.boxText == "deterministicMode") {
-			System.out.println("Runnind deterministic");
+			System.out.println("Running deterministic");
 			Storage.readGUI(gui); //updates all values in storage with the ones in GUI
 System.out.println("Deterministic is working ");
 System.out.println("Storage fitness table is: ");
@@ -385,27 +378,30 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 				
 		PrintWriter DetM1NameOutput, DetM2NameOutput, DetM3NameOutput, DetM4NameOutput, DetM5NameOutput, DetF1NameOutput, DetF2NameOutput, DetF3NameOutput, DetF4NameOutput, DetF5NameOutput, DetF6NameOutput;	
 		PrintWriter DetYinFemalesNameOutput, DetTotalYNameOutput, DetAllFitnessNameOutput, DetMaleFitnessNameOutput, DetFemaleFitnessNameOutput, DetMaleChrClineNameOutput, DetFemaleChrClineNameOutput, DetChrClineNameOutput;
+		String xmlDir = Storage.GUIsimName;
+		File xmlDirectory = new File(xmlDir); 
+		xmlDirectory.mkdirs();
 			
 		try {
-			DetM1Name = "Repl" +txtFileNbr + "DetM1.txt";
-			DetM2Name = "Repl" +txtFileNbr + "DetM2.txt";
-			DetM3Name = "Repl" +txtFileNbr + "DetM3.txt";
-			DetM4Name = "Repl" +txtFileNbr + "DetM4.txt";
-			DetM5Name = "Repl" +txtFileNbr + "DetM5.txt";
-			DetF1Name = "Repl" +txtFileNbr + "DetF1.txt";
-			DetF2Name = "Repl" +txtFileNbr + "DetF2.txt";
-			DetF3Name = "Repl" +txtFileNbr + "DetF3.txt";
-			DetF4Name = "Repl" +txtFileNbr + "DetF4.txt";
-			DetF5Name = "Repl" +txtFileNbr + "DetF5.txt";
-			DetF6Name = "Repl" +txtFileNbr + "DetF6.txt";	
-			DetYinFemalesName = "Repl" +txtFileNbr + "DetYinFemales.txt";
-			DetTotalYName = "Repl" +txtFileNbr + "DetTotalY.txt";
-			DetAllFitnessName = "Repl" +txtFileNbr + "DetAllFitness.txt";
-			DetMaleFitnessName = "Repl" +txtFileNbr + "DetMaleFitness.txt";
-			DetFemaleFitnessName = "Repl" +txtFileNbr + "DetFemaleFitness.txt";
-			DetMaleChrClineName = "Repl" +txtFileNbr + "DetMaleChrCline.txt";
-			DetFemaleChrClineName = "Repl" +txtFileNbr + "DetFemaleChrCline.txt";
-			DetChrClineName = "Repl" +txtFileNbr + "DetChrCline.txt";
+			DetM1Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetM1.txt";
+			DetM2Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetM2.txt";
+			DetM3Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetM3.txt";
+			DetM4Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetM4.txt";
+			DetM5Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetM5.txt";
+			DetF1Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetF1.txt";
+			DetF2Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetF2.txt";
+			DetF3Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetF3.txt";
+			DetF4Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetF4.txt";
+			DetF5Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetF5.txt";
+			DetF6Name = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetF6.txt";	
+			DetYinFemalesName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetYinFemales.txt";
+			DetTotalYName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetTotalY.txt";
+			DetAllFitnessName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetAllFitness.txt";
+			DetMaleFitnessName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetMaleFitness.txt";
+			DetFemaleFitnessName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetFemaleFitness.txt";
+			DetMaleChrClineName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetMaleChrCline.txt";
+			DetFemaleChrClineName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetFemaleChrCline.txt";
+			DetChrClineName = Storage.GUIsimName + "/Repl" +txtFileNbr + "DetChrCline.txt";
 			
 			DetM1NameOutput = new PrintWriter(new FileWriter(DetM1Name));
 			DetM2NameOutput = new PrintWriter(new FileWriter(DetM2Name));
@@ -435,51 +431,6 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 				
 				if ((j%Storage.GUIOutputEvery)==0) {
 					for (int f = 0; f < Storage.GUIZoneWidth; f++) {
-						//this if statement is to add a zero in the 1-9
-						// outputs so that excel can sort them properly
-						if (f < 10) {
-							if (Storage.GUIAllIndividualsStatus) {
-							DetM1NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetM2NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetM3NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetM4NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetM5NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetF1NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetF2NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetF3NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetF4NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetF5NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							DetF6NameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							
-							if (Storage.GUIYinFemalesStatus) {
-								DetYinFemalesNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUITotalYStatus) {
-								DetTotalYNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUITotalFitnessStatus) {
-								DetAllFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUIMaleFitnessStatus) {
-								DetMaleFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUIFemaleFitnessStatus) {
-								DetFemaleFitnessNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUIObservedZoneStatus) {
-								DetMaleChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUIFemaleChrClineStatus) {
-								DetFemaleChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							if (Storage.GUIChrClineStatus) {
-								DetChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation0" + f + "'");
-							}
-							
-							
-						}
-							else {
 								if (Storage.GUIAllIndividualsStatus) {
 									DetM1NameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 									DetM2NameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
@@ -518,7 +469,7 @@ System.out.println(" " + Storage.DfitnessTable[0][2] +" " +Storage.DfitnessTable
 								if (Storage.GUIChrClineStatus) {
 									DetChrClineNameOutput.print("'Generation " + j + "' 'ZoneLocation" + f + "'");
 								}
-							}
+							
 								
 						if (Storage.GUIAllIndividualsStatus) {
 							nextGenDpopTransect[f].printM1(DetM1NameOutput);
