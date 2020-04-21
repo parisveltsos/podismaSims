@@ -17,7 +17,6 @@ public class DPopulation {
 	public double f6 = DPop[4][2];
 //public double allDPop = m1 + m2 + m3 + m4 + m5 + f1 + f2 + f3 + f4 + f5 + f6;
 	
-	
 	public double getAllDPop(DPopulation a) {
 		double toReturn = 0;
 		for (int i=0;i<5;i++) {
@@ -257,122 +256,6 @@ public void printF6(PrintWriter pw) {
 	pw.print(" " + DPop[4][2]/allDPop);
 	pw.println();
 }
-	// This is the code of the non correct deterministic (version 1), it produced the absolute karyotypes, while we wanted the 
-	// relative.
-//	public void printM1(PrintWriter pw) {
-//		pw.print(" " + DPop[0][0]);
-//		pw.println();
-//}
-//
-//public void printM2(PrintWriter pw) {
-//	pw.print(" " + (DPop[0][1] + DPop[1][2]));
-//	pw.println();
-//}
-//public void printM3(PrintWriter pw) {
-//	pw.print(" " + DPop[0][2]);
-//	pw.println();
-//}
-//public void printM4(PrintWriter pw) {
-//	pw.print(" " + DPop[1][1]);
-//	pw.println();
-//}
-//public void printM5(PrintWriter pw) {
-//	pw.print(" " + DPop[1][0]);
-//	pw.println();
-//}
-//public void printF1(PrintWriter pw) {
-//	pw.print(" " + DPop[2][0]);
-//	pw.println();
-//}
-//public void printF2(PrintWriter pw) {
-//	pw.print(" " + DPop[3][1]);
-//	pw.println();
-//}
-//public void printF3(PrintWriter pw) {
-//	pw.print(" " + (DPop[3][0] + DPop[2][1]));
-//	pw.println();
-//}
-//public void printF4(PrintWriter pw) {
-//	pw.print(" " + (DPop[4][0] + DPop[2][2]));
-//	pw.println();
-//}
-//public void printF5(PrintWriter pw) {
-//	pw.print(" " + (DPop[4][1] + DPop[3][2]));
-//	pw.println();
-//}
-//public void printF6(PrintWriter pw) {
-//	pw.print(" " + DPop[4][2]);
-//	pw.println();
-//}
-
-//public void printDetYinFemales(PrintWriter pw) {
-//	pw.print(" " + (DPop[4][0] + DPop[4][1] +DPop[2][2] + DPop[3][2] + DPop[4][2] * 2));
-//	pw.println();
-//	// x2 because this individual contains 2 Ys (not because 2 gamete combinations can give rise to it)
-//}
-//
-//public void printDetTotalY(PrintWriter pw) {
-//	pw.print(" " + (DPop[0][0] + DPop[0][1] + DPop[0][2] * 2 + DPop[1][2] + DPop[4][0] + DPop[4][1] +DPop[2][2] + DPop[3][2] + DPop[4][2] * 2));
-//	pw.println();
-//}
-//public void printDetMaleFitness(PrintWriter pw) {
-//	pw.print(" " + (2 * ( //everything times 2 so that fitness adds up to 1. I am not sure whether it will though
-//					DPop[0][0] * Storage.DfitnessTable[0][0] + 
-//					DPop[0][1] * Storage.DfitnessTable[0][1] + 
-//					DPop[0][2] * Storage.DfitnessTable[0][2] + 
-//					DPop[1][0] * Storage.DfitnessTable[1][0] +
-//					DPop[1][1] * Storage.DfitnessTable[1][1] +
-//					DPop[1][2] * Storage.DfitnessTable[1][2] )));
-//	pw.println();
-//}
-//public void printDetFemaleFitness(PrintWriter pw) {
-//	pw.print(" " + (2 * (
-//					DPop[2][0] * Storage.DfitnessTable[2][0] + 
-//					DPop[2][1] * Storage.DfitnessTable[2][1] + 
-//					DPop[2][2] * Storage.DfitnessTable[2][2] + 
-//					DPop[3][0] * Storage.DfitnessTable[3][0] +
-//					DPop[3][1] * Storage.DfitnessTable[3][1] +
-//					DPop[3][2] * Storage.DfitnessTable[3][2] + 
-//					DPop[4][0] * Storage.DfitnessTable[4][0] +
-//					DPop[4][1] * Storage.DfitnessTable[4][1] +
-//					DPop[4][2] * Storage.DfitnessTable[4][2] )));
-//	pw.println();
-//}	
-//
-//public void printDetTotalFitness(PrintWriter pw) {
-//	pw.print(" " + (2 * ( //everything times 2 so that fitness adds up to 1. I am not sure whether it will though
-//			DPop[0][0] * Storage.DfitnessTable[0][0] + 
-//			DPop[0][1] * Storage.DfitnessTable[0][1] + 
-//			DPop[0][2] * Storage.DfitnessTable[0][2] + 
-//			DPop[1][0] * Storage.DfitnessTable[1][0] +
-//			DPop[1][1] * Storage.DfitnessTable[1][1] +
-//			DPop[1][2] * Storage.DfitnessTable[1][2] +
-//					DPop[2][0] * Storage.DfitnessTable[2][0] + 
-//					DPop[2][1] * Storage.DfitnessTable[2][1] + 
-//					DPop[2][2] * Storage.DfitnessTable[2][2] + 
-//					DPop[3][0] * Storage.DfitnessTable[3][0] +
-//					DPop[3][1] * Storage.DfitnessTable[3][1] +
-//					DPop[3][2] * Storage.DfitnessTable[3][2] + 
-//					DPop[4][0] * Storage.DfitnessTable[4][0] +
-//					DPop[4][1] * Storage.DfitnessTable[4][1] +
-//					DPop[4][2] * Storage.DfitnessTable[4][2] )));
-//	pw.println();
-//}
-////Used to plot F/UF in males ie microscopically observed fusion %. But result gave infinity in fused side so changed to plotting just te fusion
-//public void printDetMaleChrCline(PrintWriter pw) {
-//	pw.print(" " + ( DPop[0][0] + DPop[1][0]) );
-//	pw.println();
-//}
-//public void printDetFemaleChrCline(PrintWriter pw) { //this is more complicated as fusion% takes into account % in individuals as well as population
-//	pw.print(" " + (DPop[2][0] *2 + DPop[3][0] + DPop[4][0] + DPop[2][1] + DPop[2][2]));
-//	pw.println();
-//}
-//	
-//public void printDetChrCline(PrintWriter pw) {
-//	pw.print(" " + (DPop[0][0] + DPop[1][0] + DPop[2][0] *2 + DPop[3][0] + DPop[4][0] + DPop[2][1] + DPop[2][2]));
-//	pw.println();
-//}
-
 
 public void printDetYinFemales(PrintWriter pw) {
 	double allDPop = 0;
@@ -399,24 +282,7 @@ public void printDetTotalY(PrintWriter pw) {
 	DPop[3][1] * 2 + DPop[3][0] + DPop[2][1] + DPop[4][0] + DPop[2][2] + DPop[4][1] * 2 + DPop[3][2] * 2 + DPop[4][2] * 2));
 	pw.println();
 	
-/*	pw.print(" " + (DPop[0][0]/allDPop + DPop[0][1]/allDPop + DPop[0][2]/allDPop * 2 + DPop[1][2]/allDPop + DPop[4][0]/allDPop + DPop[4][1]/allDPop +DPop[2][2]/allDPop + DPop[3][2]/allDPop + DPop[4][2]/allDPop * 2)/
-			(DPop[0][0]/allDPop + DPop[0][1]/allDPop * 2 + DPop[1][2]/allDPop * 2 + DPop[0][2]/allDPop * 2 + DPop[1][1]/allDPop * 2 + DPop[1][0]/allDPop +
-			DPop[3][1]/allDPop * 2 + DPop[3][0]/allDPop + DPop[2][1]/allDPop + DPop[4][0]/allDPop + DPop[2][2]/allDPop + DPop[4][1]/allDPop * 2 + DPop[3][2]/allDPop * 2 + DPop[4][2]/allDPop * 2));
-			pw.println();*/
 }
-
-/* OLD CODE (V1.1.1 and before)
-public void printDetTotalY(PrintWriter pw) {
-	double allDPop = 0;
-	for (int i=0;i<5;i++) {
-		for (int j=0;j<3;j++) {
-			allDPop = allDPop + DPop[i][j];
-		}
-	}
-	pw.print(" " + (DPop[0][0]/allDPop + DPop[0][1]/allDPop + DPop[0][2]/allDPop * 2 + DPop[1][2]/allDPop + DPop[4][0]/allDPop + DPop[4][1]/allDPop +DPop[2][2]/allDPop + DPop[3][2]/allDPop + DPop[4][2]/allDPop * 2));
-	pw.println();
-}
-*/
 
 //For version 1.1.1 the total fitness was changed to be calculated depending on whether males with a Y exist in a population or not.
 
@@ -427,18 +293,18 @@ public void printDetMaleFitness(PrintWriter pw) {
 			allDPop = allDPop + DPop[i][j];
 		}
 	}
-	
-	if (DPop[0][0] + DPop[0][1] + DPop[0][2] + DPop[1][2] < 0.01) {
-		pw.print(" " + (2 * ( //everything times 2 so that fitness adds up to 1.
-				DPop[0][0]/allDPop + 
-				DPop[0][1]/allDPop + 
-				DPop[0][2]/allDPop + 
-				DPop[1][0]/allDPop * Storage.DfitnessTable[1][0] +
-				DPop[1][1]/allDPop * Storage.DfitnessTable[1][1] +
-				DPop[1][2]/allDPop  )));
-pw.println();
-	}
-	else
+// This creates a plotting problem	
+// 	if (DPop[0][0] + DPop[0][1] + DPop[0][2] + DPop[1][2] < 0.01) {
+// 		pw.print(" " + (2 * ( //everything times 2 so that fitness adds up to 1.
+// 				DPop[0][0]/allDPop + 
+// 				DPop[0][1]/allDPop + 
+// 				DPop[0][2]/allDPop + 
+// 				DPop[1][0]/allDPop * Storage.DfitnessTable[1][0] +
+// 				DPop[1][1]/allDPop * Storage.DfitnessTable[1][1] +
+// 				DPop[1][2]/allDPop  )));
+// pw.println();
+// 	}
+// 	else
 	pw.print(" " + (2 * ( //everything times 2 so that fitness adds up to 1.
 					DPop[0][0]/allDPop * Storage.DfitnessTable[0][0] + 
 					DPop[0][1]/allDPop * Storage.DfitnessTable[0][1] + 
@@ -476,29 +342,29 @@ public void printDetTotalFitness(PrintWriter pw) {
 			allDPop = allDPop + DPop[i][j];
 		}
 	}
-	
-	if (DPop[0][0] + DPop[0][1] + DPop[0][2] + DPop[1][2] < 0.01) {
-		pw.print(" " + (2 * ( //everything times 2 fitness adds up to 2
-				DPop[0][0]/allDPop + 
-				DPop[0][1]/allDPop + 
-				DPop[0][2]/allDPop + 
-				DPop[1][0]/allDPop * Storage.DfitnessTable[1][0] +
-				DPop[1][1]/allDPop * Storage.DfitnessTable[1][1] +
-				DPop[1][2]/allDPop + 
-					DPop[2][0]/allDPop * Storage.DfitnessTable[2][0] + 
-					DPop[2][1]/allDPop * Storage.DfitnessTable[2][1] + 
-					DPop[2][2]/allDPop * Storage.DfitnessTable[2][2] + 
-					DPop[3][0]/allDPop * Storage.DfitnessTable[3][0] +
-					DPop[3][1]/allDPop * Storage.DfitnessTable[3][1] +
-					DPop[3][2]/allDPop * Storage.DfitnessTable[3][2] + 
-					DPop[4][0]/allDPop * Storage.DfitnessTable[4][0] +
-					DPop[4][1]/allDPop * Storage.DfitnessTable[4][1] +
-					DPop[4][2]/allDPop * Storage.DfitnessTable[4][2] )));
-pw.println();
-	}
-	else
-	
-	pw.print(" " + (2 * ( //everything times 2 so that fitness adds up to 1. I am not sure whether it will though
+// This creates a plotting problem	
+// 	if (DPop[0][0] + DPop[0][1] + DPop[0][2] + DPop[1][2] < 0.01) {
+// 		pw.print(" " + (2 * ( //everything times 2 fitness adds up to 2
+// 				DPop[0][0]/allDPop + 
+// 				DPop[0][1]/allDPop + 
+// 				DPop[0][2]/allDPop + 
+// 				DPop[1][0]/allDPop * Storage.DfitnessTable[1][0] +
+// 				DPop[1][1]/allDPop * Storage.DfitnessTable[1][1] +
+// 				DPop[1][2]/allDPop + 
+// 					DPop[2][0]/allDPop * Storage.DfitnessTable[2][0] + 
+// 					DPop[2][1]/allDPop * Storage.DfitnessTable[2][1] + 
+// 					DPop[2][2]/allDPop * Storage.DfitnessTable[2][2] + 
+// 					DPop[3][0]/allDPop * Storage.DfitnessTable[3][0] +
+// 					DPop[3][1]/allDPop * Storage.DfitnessTable[3][1] +
+// 					DPop[3][2]/allDPop * Storage.DfitnessTable[3][2] + 
+// 					DPop[4][0]/allDPop * Storage.DfitnessTable[4][0] +
+// 					DPop[4][1]/allDPop * Storage.DfitnessTable[4][1] +
+// 					DPop[4][2]/allDPop * Storage.DfitnessTable[4][2] )));
+// pw.println();
+// 	}
+// 	else
+// 	
+	pw.print(" " + (1 * ( //everything times 2 so that fitness adds up to 1. I am not sure whether it will though
 			DPop[0][0]/allDPop * Storage.DfitnessTable[0][0] + 
 			DPop[0][1]/allDPop * Storage.DfitnessTable[0][1] + 
 			DPop[0][2]/allDPop * Storage.DfitnessTable[0][2] + 
@@ -560,54 +426,34 @@ public void printDetChrCline(PrintWriter pw) {
 	(DPop[0][0] + DPop[0][1] + DPop[1][2] + DPop[0][2] + DPop[1][1] + DPop[1][0] + 2*DPop[2][0] + 2*DPop[3][1] + 2*DPop[3][0] + 2*DPop[2][1] + 2*DPop[4][0] + 2*DPop[2][2] + 2*DPop[4][1] + 2*DPop[3][2] + 2*DPop[4][2]));
 	pw.println();
 	
-/*	pw.print(" " + (DPop[0][0]/allDPop + DPop[1][0]/allDPop + DPop[2][0]/allDPop *2 + DPop[3][0]/allDPop + DPop[4][0]/allDPop + DPop[2][1]/allDPop + DPop[2][2]/allDPop)/
-			(DPop[0][0]/allDPop + DPop[0][1]/allDPop + DPop[1][2]/allDPop + DPop[0][2]/allDPop + DPop[1][1]/allDPop + DPop[1][0]/allDPop + 2*DPop[2][0]/allDPop + 2*DPop[3][1]/allDPop + 2*DPop[3][0]/allDPop + 2*DPop[2][1]/allDPop + 2*DPop[4][0]/allDPop + 2*DPop[2][2]/allDPop + 2*DPop[4][1]/allDPop + 2*DPop[3][2]/allDPop + 2*DPop[4][2]/allDPop));
-			pw.println();*/
 }
-
-/* OLD CODE (version 1.1.1 and below)
-public void printDetChrCline(PrintWriter pw) {
-	double allDPop = 0;
-	for (int i=0;i<5;i++) {
-		for (int j=0;j<3;j++) {
-			allDPop = allDPop + DPop[i][j];
-		}
-	}
-	pw.print(" " + (2*DPop[0][0]/allDPop + 2*DPop[1][0]/allDPop + DPop[2][0]/allDPop *2 + DPop[3][0]/allDPop + DPop[4][0]/allDPop + DPop[2][1]/allDPop + DPop[2][2]/allDPop));
-	pw.println();
-}
-*/
 
 //need this here, just copied the original version from the Population class
 public void addSimParameters(PrintWriter pw) {
-	pw.println();
-	pw.println();
-	pw.println("'Population size:' " + Storage.GUIpopSize);
-	pw.println("'Run for generations:' " + Storage.GUIgenerations);
-	pw.println("'Gene flow stops at:' " + Storage.GUIgeneFlowGenerations);
-	pw.println("'Autosomal loci recombination frequency:' "
-			+ Storage.GUIARecFr);
-	pw.println("'Y chromosome loci recombination frequency:' "
-			+ Storage.GUIYRecFr);
-	pw.println("'X chromosome loci recombination frequency:' "
-			+ Storage.GUIXRecFr);
-	pw.println("'Fusion recombination frequency:' " + Storage.GUIFRecFr);
-	pw.println("'Percentage of gene flow:' " + Storage.GUIgeneFlow);
-	pw.println("'Zone Width is:' " + Storage.GUIZoneWidth);
-	pw.println("'Produce text file Nbr:' " + Storage.GUItxtFiles);
-	pw.println("'Output every:' " + Storage.GUIOutputEvery);
-	pw.println("'male fitness 1 is:' " + Storage.GUImaleFitness1);
-	pw.println("'male fitness 2 is:' " + Storage.GUImaleFitness2);
-	pw.println("'male fitness 3 is:' " + Storage.GUImaleFitness3);
-	pw.println("'male fitness 4 is:' " + Storage.GUImaleFitness4);
-	pw.println("'male fitness 5 is:' " + Storage.GUImaleFitness5);
-	pw.println("'female fitness 1 is:' " + Storage.GUIfemaleFitness1);
-	pw.println("'female fitness 2 is:' " + Storage.GUIfemaleFitness2);
-	pw.println("'female fitness 3 is:' " + Storage.GUIfemaleFitness3);
-	pw.println("'female fitness 4 is:' " + Storage.GUIfemaleFitness4);
-	pw.println("'female fitness 5 is:' " + Storage.GUIfemaleFitness5);
-	pw.println("'female fitness 6 is:' " + Storage.GUIfemaleFitness6);
-	pw.println("'Program version is: 1.3' ");
+		pw.println();
+		pw.println();
+		pw.println("'Population size:' " + Storage.GUIpopSize);
+		pw.println("'Run for generations:' " + Storage.GUIgenerations);
+		pw.println("'Autosomal recombination freq:' " + Storage.GUIARecFr);
+		pw.println("'Y recombination freq:' " + Storage.GUIYRecFr);
+		pw.println("'X recombination freq:' " + Storage.GUIXRecFr);
+		pw.println("'Fusion recombination freq:' " + Storage.GUIFRecFr);
+		pw.println("'Percent gene flow:' " + Storage.GUIgeneFlow);
+		pw.println("'Zone Width:' " + Storage.GUIZoneWidth);
+		pw.println("'Produce text file Nbr:' " + Storage.GUItxtFiles);
+		pw.println("'Output every:' " + Storage.GUIOutputEvery);
+		pw.println("'male fitness 1:' " + Storage.GUImaleFitness1);
+		pw.println("'male fitness 2:' " + Storage.GUImaleFitness2);
+		pw.println("'male fitness 3:' " + Storage.GUImaleFitness3);
+		pw.println("'male fitness 4:' " + Storage.GUImaleFitness4);
+		pw.println("'male fitness 5:' " + Storage.GUImaleFitness5);
+		pw.println("'female fitness 1:' " + Storage.GUIfemaleFitness1);
+		pw.println("'female fitness 2:' " + Storage.GUIfemaleFitness2);
+		pw.println("'female fitness 3:' " + Storage.GUIfemaleFitness3);
+		pw.println("'female fitness 4:' " + Storage.GUIfemaleFitness4);
+		pw.println("'female fitness 5:' " + Storage.GUIfemaleFitness5);
+		pw.println("'female fitness 6:' " + Storage.GUIfemaleFitness6);
+		pw.println("'Program version: 1.4' ");
 }
 
 }
