@@ -255,27 +255,25 @@ public class Population {
 		pw.println();
 		pw.println("'Population size:' " + Storage.GUIpopSize);
 		pw.println("'Run for generations:' " + Storage.GUIgenerations);
-		pw.println("'Autosomal loci recombination frequency:' "
-				+ Storage.GUIARecFr);
-		pw.println("'Y chromosome loci recombination frequency:' "
-				+ Storage.GUIYRecFr);
-		pw.println("'X chromosome loci recombination frequency:' "
-				+ Storage.GUIXRecFr);
-		pw.println("'Fusion recombination frequency:' " + Storage.GUIFRecFr);
-		pw.println("'Percentage of gene flow:' " + Storage.GUIgeneFlow);
-		pw.println("'Zone Width is:' " + Storage.GUIZoneWidth);
+		pw.println("'Autosomal recombination freq:' " + Storage.GUIARecFr);
+		pw.println("'Y recombination freq:' " + Storage.GUIYRecFr);
+		pw.println("'X recombination freq:' " + Storage.GUIXRecFr);
+		pw.println("'Fusion recombination freq:' " + Storage.GUIFRecFr);
+		pw.println("'Percent gene flow:' " + Storage.GUIgeneFlow);
+		pw.println("'Zone Width:' " + Storage.GUIZoneWidth);
 		pw.println("'Produce text file Nbr:' " + Storage.GUItxtFiles);
 		pw.println("'Output every:' " + Storage.GUIOutputEvery);
-		pw.println("'male fitness 1 is:' " + Storage.GUImaleFitness1);
-		pw.println("'male fitness 2 is:' " + Storage.GUImaleFitness2);
-		pw.println("'male fitness 3 is:' " + Storage.GUImaleFitness3);
-		pw.println("'male fitness 4 is:' " + Storage.GUImaleFitness4);
-		pw.println("'male fitness 5 is:' " + Storage.GUImaleFitness5);
-		pw.println("'female fitness 1 is:' " + Storage.GUIfemaleFitness1);
-		pw.println("'female fitness 2 is:' " + Storage.GUIfemaleFitness2);
-		pw.println("'female fitness 3 is:' " + Storage.GUIfemaleFitness3);
-		pw.println("'female fitness 4 is:' " + Storage.GUIfemaleFitness4);
-		pw.println("'female fitness 5 is:' " + Storage.GUIfemaleFitness5);
-		pw.println("'female fitness 6 is:' " + Storage.GUIfemaleFitness6);
+		pw.println("'male fitness 1:' " + Storage.GUImaleFitness1);
+		pw.println("'male fitness 2:' " + Storage.GUImaleFitness2);
+		pw.println("'male fitness 3:' " + Storage.GUImaleFitness3);
+		pw.println("'male fitness 4:' " + Storage.GUImaleFitness4);
+		pw.println("'male fitness 5:' " + Storage.GUImaleFitness5);
+		pw.println("'female fitness 1:' " + Storage.GUIfemaleFitness1);
+		pw.println("'female fitness 2:' " + Storage.GUIfemaleFitness2);
+		pw.println("'female fitness 3:' " + Storage.GUIfemaleFitness3);
+		pw.println("'female fitness 4:' " + Storage.GUIfemaleFitness4);
+		pw.println("'female fitness 5:' " + Storage.GUIfemaleFitness5);
+		pw.println("'female fitness 6:' " + Storage.GUIfemaleFitness6);
+		pw.println("'Program version: 1.4' ");
 	}
 }

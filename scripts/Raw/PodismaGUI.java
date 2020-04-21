@@ -100,7 +100,7 @@ public class PodismaGUI extends JFrame {
 			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
 	JLabel OutputEveryLbl = new JLabel("Output result every: ");
-	JLabel VersionNumberLbl = new JLabel("Version 1.3.2 ");
+	JLabel VersionNumberLbl = new JLabel("Version 1.4 ");
 	
 	JTextField OutputEveryTxtfld = new JTextField("10", 5);
 
